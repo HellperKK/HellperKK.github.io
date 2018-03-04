@@ -3,6 +3,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 a.lien {
     color: blue;
     font: bold;

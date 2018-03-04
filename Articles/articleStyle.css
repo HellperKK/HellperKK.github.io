@@ -1,7 +1,11 @@
 a {
-    color: red;
+    color: black;
     text-decoration: none;
 }
+
+/* a.retour {
+    color: red;
+} */
 
 body {
   background-color: #EEEEEE
@@ -11,5 +15,6 @@ body {
     border-radius: 25px;
     background: #999999;
     padding: 20px;
-    margin: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }

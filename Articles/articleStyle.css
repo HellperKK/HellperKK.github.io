@@ -3,9 +3,10 @@ a {
     text-decoration: none;
 }
 
-/* a.retour {
-    color: red;
-} */
+a.lien {
+    color: blue;
+    font: bold;
+}
 
 body {
   background-color: #EEEEEE

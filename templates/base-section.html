@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} {{section.title}}{% endblock %}
+{% block content %}
+<h1 class="title">
+  {{ section.description }}
+</h1>
+<br>
+<h2>{{ section.content | safe }}</h2>
+{% set articles_length = section.pages | length %}
+{% if articles_length > 0 %}
+  <br>
+  <p>Liste des articles de la section :</p>
+  {% for page in section.pages %}
+  <li><a href="{{ page.path | safe }}">{{ page.title }}</a></li>
+  {% endfor %}
+{% endif %}
+
+{% set categories_length = section.subsections | length %}
+{% if categories_length > 0 %}
+  <br>
+  <p>Liste des catégories de la section :</p>
+  {% for section_path in section.subsections %}
+    {% set section = get_section(path=section_path) %}
+    <li>Catégorie sur <a href="{{ section.path | safe }}">{{ section.title }}</a></li>
+  {% endfor %}
+{% endif %}
+
+{% if articles_length == 0 and categories_length == 0 %}
+  <br>
+  <p>Cette section est vide pour l'instant</p>
+{% endif %}
+{% endblock content %}

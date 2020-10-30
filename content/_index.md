@@ -1,5 +1,5 @@
 +++
-title = "trucs"
+title = "les trucs"
 description = "Racine du blog"
 template = "base-section.html"
 +++

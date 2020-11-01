@@ -25,5 +25,4 @@ jobs:
       env:
         PAGES_BRANCH: master
         BUILD_DIR: .
-        BUILD_FLAGS: --drafts
         TOKEN: ${{ secrets.PUBLIC_ACTION }}

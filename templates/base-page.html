@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 {% block title %}
-  {% set section_path = page.ancestors | last %}
-  {% set_global section_name = get_section(path=section_path) | get(key="title") %}
-  {{ super() }} {{section_name}} | {{page.title}}
+{% set section_path = page.ancestors | last %}
+{% set_global section_name = get_section(path=section_path) | get(key="title") %}
+{{ super() }} {{section_name}} | {{page.title}}
 {% endblock %}
 
 {% block content %}
 
-  {% set ancestors_length = page.ancestors | length %}
-  {% if ancestors_length > 0 %}
-    <span>Remonter vers : </span>
-    {% for section_path in page.ancestors %}
-      {% set section = get_section(path=section_path) %}
-      {% if loop.first %}
-        <a href="{{ section.path | safe }}">{{ section.title }}</a>
-      {% else %}
-        | <a href="{{ section.path | safe }}">{{ section.title }}</a>
-      {% endif %}
-    {% endfor %}
-    <br>
-  {% endif %}
+{% set ancestors_length = page.ancestors | length %}
+{% if ancestors_length > 0 %}
+<span id="top">Remonter vers : </span>
+{% for section_path in page.ancestors %}
+{% set section = get_section(path=section_path) %}
+{% if loop.first %}
+<a href="{{ section.path | safe }}">{{ section.title }}</a>
+{% else %}
+| <a href="{{ section.path | safe }}">{{ section.title }}</a>
+{% endif %}
+{% endfor %}
+<br>
+{% endif %}
 
-  <h1 class="title" id="top">
-    {{ page.title }}
-  </h1>
-  <p class="subtitle"><strong>{{ page.date }}</strong></p>
+<h1 class="title">
+  {{ page.title }}
+</h1>
+<p class="subtitle"><strong>{{ page.date }}</strong></p>
 
-  <p>{{ page.content | safe }}</p>
+<p>{{ page.content | safe }}</p>
 
-  <br>
-  <a href="#top">Remonter</a>
+<br>
+<a href="#top">Remonter</a>
 {% endblock content %}

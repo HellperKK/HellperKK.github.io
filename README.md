@@ -1,1 +1,1 @@
-Le code de mon blog github. fait avec [Zola](https://www.getzola.org/).
+Le code de mon blog github. Fait avec [Zola](https://www.getzola.org/).

@@ -232,7 +232,7 @@ class Switcher<V, R> {
 
 Faisant ainsi, je peux alors faire des constructeurs sur chaque comportement individuellement pour ensuite le fournir à `RuleFactory.generalRule`, ça me permet alors de gagner une souplesse que je n'avais pas forcément avant.
 
-Cet articles est bien trop grand par rapport à ce que je voulais faire alors je vais conclure avec un dernier exemple de code avant de vouloir tout effacer pour repartir de 0. le code complet (mal rangé) est disponible [sur le repo du blog]()
+Cet articles est bien trop grand par rapport à ce que je voulais faire alors je vais conclure avec un dernier exemple de code avant de vouloir tout effacer pour repartir de 0. le code complet (mal rangé) est disponible [sur le repo du blog](https://github.com/HellperKK/HellperKK.github.io/blob/master/code/switch/Main.java)
 
 À plush !
 

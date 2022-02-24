@@ -78,7 +78,11 @@ pre.numberSource {
     padding-left: 4px;
 }
 
-div.sourceCode {}
+div.sourceCode {
+    /*custom configuration*/
+    padding: 4px;
+    background-color: #eeeeee;
+}
 
 @media screen {
     a.sourceLine::before {

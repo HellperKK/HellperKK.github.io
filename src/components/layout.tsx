@@ -19,9 +19,9 @@ const Layout = ({ pageTitle, children }: Props) => {
   `)
 
     return (
-        <div className='bg-indigo-400 text-white h-full min-h-screen' id='top'>
-            <header className='bg-indigo-950 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
-            <Menu className="bg-indigo-950">
+        <div className='bg-gray-900 text-white h-full min-h-screen  md:px-24 xl:px-80' id='top'>
+            <header className='bg-indigo-900 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
+            <Menu className="bg-indigo-900">
                 <div className='mx-2'>
                     <Link to="/">
                         Accueil
@@ -43,7 +43,7 @@ const Layout = ({ pageTitle, children }: Props) => {
                     </Link>
                 </div>
             </Menu>
-            <main className='p-4  md:mx-60 xl:mx-80 bg-indigo-700'>
+            <main className='p-4 bg-indigo-600'>
                 <h1 className='text-center'>{pageTitle}</h1>
                 {children}
             </main>

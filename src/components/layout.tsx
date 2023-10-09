@@ -43,7 +43,7 @@ const Layout = ({ pageTitle, children }: Props) => {
                     </Link>
                 </div>
             </Menu>
-            <main className='p-4  md:mx-96 bg-indigo-700'>
+            <main className='p-4  md:mx-60 xl:mx-80 bg-indigo-700'>
                 <h1 className='text-center'>{pageTitle}</h1>
                 {children}
             </main>

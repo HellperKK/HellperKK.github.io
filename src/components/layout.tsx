@@ -19,7 +19,7 @@ const Layout = ({ pageTitle, children }: Props) => {
   `)
 
     return (
-        <div className='bg-indigo-600 text-white h-full min-h-screen' id='top'>
+        <div className='bg-indigo-400 text-white h-full min-h-screen' id='top'>
             <header className='bg-indigo-950 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
             <Menu className="bg-indigo-950">
                 <div className='mx-2'>
@@ -43,7 +43,7 @@ const Layout = ({ pageTitle, children }: Props) => {
                     </Link>
                 </div>
             </Menu>
-            <main className='p-4'>
+            <main className='p-4  md:mx-96 bg-indigo-700'>
                 <h1 className='text-center'>{pageTitle}</h1>
                 {children}
             </main>

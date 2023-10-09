@@ -6,7 +6,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 const AboutPage = () => {
     return (
         <Layout pageTitle="À propos">
-            <div className='md:flex md:flex-row my-4 xl:mx-60'>
+            <div className='md:flex md:flex-row my-4'>
                 <StaticImage className='h-60 md:h-auto'
                     alt="Clifford, a reddish-brown pitbull, dozing in a bean bag chair"
                     src="../images/portrait-link.jpg"

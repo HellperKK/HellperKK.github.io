@@ -22,7 +22,7 @@ export default function Menu({ children, className }: Props) {
                     </nav>
                 }
             </div>
-            <div className="hidden md:flex flex-row">
+            <div className="hidden md:flex flex-row justify-center">
                 {children}
             </div>
         </div>

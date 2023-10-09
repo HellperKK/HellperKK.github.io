@@ -31,7 +31,7 @@ const BlogPost = ({ data, children }: Props) => {
           </p>}
         </div>
       </div>
-      <div className='xl:mx-72'>
+      <div>
         {children}
       </div>
     </Layout>

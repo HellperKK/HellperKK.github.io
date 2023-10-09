@@ -6,10 +6,10 @@ import Seo from '../../components/seo'
 const BlogPage = ({ data }: any) => {
   return (
     <Layout pageTitle="Mon blog">
-      <div className='xl:mx-72'>
+      <div>
         {
           data.allMdx.nodes.map((node: any) => (
-            <article key={node.id} className='my-4 p-2 rounded-md bg-indigo-400 shadow-lg shadow-indigo-900/40'>
+            <article key={node.id} className='my-4 p-2 rounded-md bg-violet-500 shadow-lg shadow-indigo-900/40'>
               <h2>
                 <Link to={`/blog/${node.frontmatter.slug}`}>
                   {node.frontmatter.title}

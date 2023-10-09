@@ -23,12 +23,12 @@ const BlogPost = ({ data, children }: Props) => {
             image={image}
             alt={data.mdx.frontmatter.hero_image_alt}
           />
-          <p>
+          {data.mdx.frontmatter.hero_image_credit_link !== "" && <p>
             Photo Credit:{" "}
             <a href={data.mdx.frontmatter.hero_image_credit_link}>
               {data.mdx.frontmatter.hero_image_credit_text}
             </a>
-          </p>
+          </p>}
         </div>
       </div>
       <div className='xl:mx-72'>

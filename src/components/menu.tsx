@@ -11,7 +11,11 @@ export default function Menu({ children, className }: Props) {
     return (
         <div className={className}>
             <div className="md:hidden">
-                <div className="text-xl" onClick={() => setSamburgerIsOpen(isOpen => !isOpen)}>☰</div>
+                <div className="text-xl text-center" onClick={() => setSamburgerIsOpen(isOpen => !isOpen)}>
+                    <span className="px-4 text-2xl">
+                        ☰
+                    </span>
+                </div>
                 {hamburgerIsOpen &&
                     <nav className="flex flex-col">
                         {children}

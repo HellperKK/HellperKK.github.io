@@ -19,7 +19,7 @@ const Layout = ({ pageTitle, children }: Props) => {
   `)
 
     return (
-        <div className='bg-indigo-600 text-white h-full min-h-screen'>
+        <div className='bg-indigo-600 text-white h-full min-h-screen' id='top'>
             <header className='bg-indigo-950 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
             <Menu className="bg-indigo-950">
                 <div className='mx-2'>
@@ -38,7 +38,7 @@ const Layout = ({ pageTitle, children }: Props) => {
                     </Link>
                 </div>
                 <div className='mx-2'>
-                    <Link to="/blog">
+                    <Link to="/projects">
                         Projets
                     </Link>
                 </div>

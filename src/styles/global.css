@@ -9,4 +9,13 @@
   h2 {
     @apply text-4xl;
   }
+  ol,
+  ul,
+  menu {
+    @apply px-6 list-disc;
+  }
+
+  p a {
+    @apply text-pink-300;
+  }
 }

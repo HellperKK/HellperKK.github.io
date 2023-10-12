@@ -19,19 +19,20 @@ const Layout = ({ pageTitle, children }: Props) => {
   `)
 
     return (
-        <div className='bg-gray-900 text-white h-full min-h-screen  md:px-24 xl:px-80' id='top'>
-            <header className='bg-indigo-900 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
-            <Menu className="bg-indigo-900">
+        <div className='bg-indigo-500 text-white h-full min-h-screen' id='top'>
+            <Menu className="bg-indigo-900 text-2xl py-4">
                 <div className='mx-2'>
                     <Link to="/">
                         Accueil
                     </Link>
                 </div>
+                {/*
                 <div className='mx-2'>
                     <Link to="/about">
                         À propos
                     </Link>
                 </div>
+                */}
                 <div className='mx-2'>
                     <Link to="/blog">
                         Blog
@@ -43,7 +44,8 @@ const Layout = ({ pageTitle, children }: Props) => {
                     </Link>
                 </div>
             </Menu>
-            <main className='p-4 bg-indigo-600'>
+            <header className='bg-indigo-500 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
+            <main className='p-4 bg-indigo-500 md:px-24 xl:px-80'>
                 <h1 className='text-center'>{pageTitle}</h1>
                 {children}
             </main>

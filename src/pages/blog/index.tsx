@@ -10,11 +10,9 @@ const BlogPage = ({ data }: any) => {
         {
           data.allMdx.nodes.map((node: any) => (
             <article key={node.id} className='my-4 p-2 rounded-md bg-violet-500 shadow-lg shadow-indigo-900/40'>
-              <h2>
-                <Link to={`/blog/${node.frontmatter.slug}`}>
-                  {node.frontmatter.title}
-                </Link>
-              </h2>
+              <Link to={`/blog/${node.frontmatter.slug}`} className='text-2xl'>
+                {node.frontmatter.title}
+              </Link>
               <p>Posted: {node.frontmatter.date}</p>
             </article>
           ))

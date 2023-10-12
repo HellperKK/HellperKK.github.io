@@ -17,7 +17,7 @@ export default function Menu({ children, className }: Props) {
                     </span>
                 </div>
                 {hamburgerIsOpen &&
-                    <nav className="flex flex-col text-2xl">
+                    <nav className="flex flex-col items-center text-2xl">
                         {children}
                     </nav>
                 }

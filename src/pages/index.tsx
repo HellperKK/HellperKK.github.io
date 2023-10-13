@@ -8,7 +8,7 @@ const AboutPage = () => {
         <Layout pageTitle="Présentation">
             <div className='w-full flex flex-col items-center my-4'>
                 <StaticImage className='rounded-full w-96 text-center'
-                    alt="Clifford, a reddish-brown pitbull, dozing in a bean bag chair"
+                    alt="Pourtrait de l'auteur"
                     src="../images/portrait-link-square2.jpg"
                 />
                 <div className='px-10'>
@@ -33,7 +33,6 @@ const AboutPage = () => {
                         tout faire seul mais aussi dans l'optique de pouvoir plus aisément communiquer avec les collaborateurs d'autres disciplines.
                     </p>
                 </div>
-
             </div>
         </Layout>
     )

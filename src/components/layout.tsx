@@ -23,7 +23,7 @@ const Layout = ({ pageTitle, children }: Props) => {
             <Menu className="bg-indigo-900 text-2xl py-4">
                 <div className='mx-2'>
                     <Link to="/">
-                        Accueil
+                        <span className='underline'>Accueil</span>
                     </Link>
                 </div>
                 {/*
@@ -34,13 +34,13 @@ const Layout = ({ pageTitle, children }: Props) => {
                 </div>
                 */}
                 <div className='mx-2'>
-                    <Link to="/blog">
-                        Blog
+                    <Link to="/projects">
+                        <span className='underline'>Blog</span>
                     </Link>
                 </div>
                 <div className='mx-2'>
                     <Link to="/projects">
-                        Projets
+                    <span className='underline'>Projets</span>
                     </Link>
                 </div>
             </Menu>

@@ -3,9 +3,10 @@ import Layout from '../../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../../components/seo'
 import Screen from '../../components/screen'
+import Herobook from '../../components/projects/herobook'
 
 const Projects = () => {
-  const projects = Array.from({ length: 10 }, (_, index) => index.toString())
+  const projects = [<Herobook />]
 
   return (
     <Layout pageTitle="Mes projets">

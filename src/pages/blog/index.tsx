@@ -4,6 +4,7 @@ import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 
 const BlogPage = ({ data }: any) => {
+  console.log(data.allMdx.nodes[0].frontmatter)
   return (
     <Layout pageTitle="Mon blog">
       <div>
@@ -24,12 +25,13 @@ const BlogPage = ({ data }: any) => {
 
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { date: DESC }}) {
+    allMdx(sort: { frontmatter: { date: DESC }}, filter: {frontmatter: { published: {eq: true} }}) {
       nodes {
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
           slug
+          published
         }
         id
       }

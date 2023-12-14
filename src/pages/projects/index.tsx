@@ -4,16 +4,17 @@ import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../../components/seo'
 import Screen from '../../components/screen'
 import Herobook from '../../components/projects/herobook'
+import Stoicos from '../../components/projects/stoicos'
 
 const Projects = () => {
-  const projects = [<Herobook />]
+  const projects = [<Herobook />, <Stoicos />]
 
   return (
     <Layout pageTitle="Mes projets">
       <div>
-        <div className='text-center py-4'>
+        {/*<div className='text-center py-4'>
           <a href={`#screen-0`} className='' >commencer la visite</a>
-        </div>
+  </div>*/}
         <div className='snap-y snap-mandatory'>
           {projects.map((project, index, projects) => <Screen current={index} max={projects.length}>
             {project}

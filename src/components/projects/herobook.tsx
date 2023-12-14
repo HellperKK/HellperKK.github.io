@@ -10,7 +10,6 @@ export default function Herobook() {
                     src="../../images/Herobook.jpg"
                 />
         </div>
-        
         <p>
             Herobook est un moteur de jeu textuel permettant de réaliser des histoires à embranchement
             ou des romans dont vous êtes les héros. Son dévelopement à débuté en avril 2014 et est toujours

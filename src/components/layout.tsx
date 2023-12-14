@@ -23,29 +23,32 @@ const Layout = ({ pageTitle, children }: Props) => {
             <Menu className="bg-indigo-900 text-2xl py-4">
                 <div className='mx-2'>
                     <Link to="/">
-                        <span className='underline'>Accueil</span>
+                        <span>Accueil</span>
                     </Link>
                 </div>
+                <span>|</span>
                 {/*
                 <div className='mx-2'>
                     <Link to="/about">
                         À propos
                     </Link>
                 </div>
+                <span>|</span>
                 */}
                 <div className='mx-2'>
-                    <Link to="/projects">
-                        <span className='underline'>Blog</span>
+                    <Link to="/blog">
+                        <span>Blog</span>
                     </Link>
                 </div>
+                <span>|</span>
                 <div className='mx-2'>
                     <Link to="/projects">
-                    <span className='underline'>Projets</span>
+                        <span>Projets</span>
                     </Link>
                 </div>
             </Menu>
             <header className='bg-indigo-500 p-4 text-center text-2xl'>{data.site.siteMetadata.title}</header>
-            <main className='p-4 bg-indigo-500 md:px-24 xl:px-80'>
+            <main className='p-4 bg-indigo-500 md:px-24 xl:px-80 2xl:px-96'>
                 <h1 className='text-center'>{pageTitle}</h1>
                 {children}
             </main>

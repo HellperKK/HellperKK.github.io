@@ -10,7 +10,7 @@ const BlogPage = ({ data }: any) => {
       <div>
         {
           data.allMdx.nodes.map((node: any) => (
-            <article key={node.id} className='my-4 p-2 rounded-md bg-violet-500 shadow-lg shadow-indigo-900/40'>
+            <article key={node.id} className='my-4 p-2 rounded-md bg-[#7f81e9] shadow-lg shadow-indigo-900/40'>
               <Link to={`/blog/${node.frontmatter.slug}`} className='text-2xl'>
                 {node.frontmatter.title}
               </Link>

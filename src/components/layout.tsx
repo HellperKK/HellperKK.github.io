@@ -10,17 +10,17 @@ interface Props {
 const Layout = ({ pageTitle, children }: Props) => {
     const data = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          title
+        site {
+            siteMetadata {
+                title
+            }
         }
-      }
     }
-  `)
+`)
 
     return (
         <div className='bg-[#5c5d9c] text-white h-full min-h-screen' id='top'>
-            <Menu className="bg-[#3d3d5e] text-2xl py-4">
+            <Menu className="bg-[#3d3d5e] text-2xl py-4 sticky top-0 z-10">
                 <div className='mx-2'>
                     <Link to="/">
                         <span>Accueil</span>

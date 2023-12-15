@@ -7,7 +7,7 @@ orientée objet, comment je l&#x27;ai comprise et comment tout cela m&#x27;a ame
 pas mal d&#x27;aisance. Puis j&#x27;ai migré sur la programmation orienté objet et là, cela s&#x27;est beaucoup moins bien passé. Avec le recul je pense
 que cela est dû à plusieurs facteurs. D&#x27;abord les travaux à réaliser étaient moins créatifs car ils s&#x27;agissait beaucoup d&#x27;écriture
 de setteurs de getteurs : du code bien redondant à coup de copier coller. De plus, j&#x27;ai été confronté à ce que j&#x27;appelle le problème du
-comment vs pourquoi. C&#x27;est à dire que les cours étaient bien plus orientés sur ce que la poo apportait sans pour autant justifier ses choix
+comment vs pourquoi. C&#x27;est à dire que les cours étaient bien plus orientés sur ce que la POO apportait sans pour autant justifier ses choix
 de design. Je savais comment ça marchait, mais pas pourquoi ça marchait comme ça.</p>
 <p>Cela a duré jusqu&#x27;en 2015 où, pendant que je suivais des moocs de programmation, je suis tombé sur un langage assez exotique vis à vis de ce
 que je connaissais jusque là : Pharo. Contrairement à Java où Php, Pharo est un langage de programmation objet pur et les instructions impératives
@@ -15,7 +15,7 @@ des deux autres langages, comme les conditions et les boucles, sont alors des ap
 elle-même sont des objets.</p>
 <p>Malgré sa syntaxe assez particulière et le fait que je n&#x27;ai toujours pas produit de code pharo à ce jour, ça a été une révélation qui m&#x27;a grandement
 aidé à comprendre l&#x27;orienté objet.</p>
-<p>Pour un peu de culture, voici un exmeple de code pharo, tiré du livre <em>pharo par l&#x27;exemple</em>.</p>
+<p>Pour un peu de culture, voici un exemple de code pharo, tiré du livre <em>pharo par l&#x27;exemple</em>.</p>
 <span><div class="gatsby-highlight" data-language="smalltalk"><pre style="counter-reset: linenumber NaN" class="language-smalltalk line-numbers"><code class="language-smalltalk">initialize
   <span class="token temporary-variables"><span class="token punctuation">|</span> <span class="token variable">sampleCell</span> <span class="token variable">width</span> <span class="token variable">height</span> <span class="token variable">n</span> <span class="token punctuation">|</span></span>
   <span class="token keyword">super</span> initialize<span class="token punctuation">.</span>
@@ -29,10 +29,10 @@ aidé à comprendre l&#x27;orienté objet.</p>
 <p>C&#x27;est peu de temps après que je me suis penché sur le langage Php, et l&#x27;onboarding n&#x27;a pas été des plus fameux ! Je pourrais critiquer pas mal de
 points mais je me concentrerais sur un seul, ce n&#x27;était pas l&#x27;orienté objet que j&#x27;avais appris à aimer. Cela a été la source de pas mal de
 frustrations, au point qu&#x27;il m&#x27;est venu l&#x27;envie d&#x27;y palier en lançant un projet assez loufoque : recréer l&#x27;OOP de Php. N&#x27;étant pas sûr de la
-possibilité d&#x27;une telle démarche, je décide de ne renomer <em>Php&#x27;s Object Oriented Project</em>, ou POOP pour les intimes.</p>
+possibilité d&#x27;une telle démarche, je décide de le renomer <em>Php&#x27;s Object Oriented Project</em>, ou POOP pour les intimes.</p>
 <p>Les premier essais ne sont pas fameux et font usage de code assez discutable. C&#x27;est assez logique, si je veux retrouver cette POO que j&#x27;aime
 il me faut refaire la classes, l&#x27;héritage, l&#x27;accès à self et à super... tout ça n&#x27;est pas chose aisée. Pour vous montrer un exmeple, voici un
-bout de code du premier jet avec une fonction <em>_self</em> qui renvoi l&#x27;objet qui l&#x27;appelle :</p>
+bout de code du premier jet avec une fonction <em>_self</em> qui renvoie l&#x27;objet qui l&#x27;appelle :</p>
 <span><div class="gatsby-highlight" data-language="php"><pre style="counter-reset: linenumber NaN" class="language-php line-numbers"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">_self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token variable">$objet</span> <span class="token operator">=</span> <span class="token function">debug_backtrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token variable">$objet</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"object"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -46,11 +46,11 @@ ajoute la création d&#x27;une metaclasse dont la classe est instance, avec un a
 Il y a aussi Ruby, qui propose une alternative moins lourde mais tout de même tordue à mon sens. Toute classe est instance de la classe <em>Class</em>,
 qui est instance d&#x27;elle-même, et hérite indirectement de la class <em>Object</em> qui du coup est aussi instance de la classe <em>Class</em>. De quoi donner le
 tourni...</p>
-<p>Au bout d&#x27;un moment et à force de réflexions m&#x27;est venue une question : si je veux manipuler des objets qui sont instances de classes elle-même objet,
-ne serait-être pas préférable de mettre les deux concepts de classes et d&#x27;instances au même niveau pour ne manipuler que des objets ? C&#x27;est ainsi que
+<p>Au bout d&#x27;un moment et à force de réflexions m&#x27;est venue une question : si je veux manipuler des objets qui sont instances de classes elles-même objets,
+ne serait-il pas préférable de mettre les deux concepts de classes et d&#x27;instances au même niveau pour ne manipuler que des objets ? C&#x27;est ainsi que
 je me suis intéressé au concept de prototype.</p>
-<p>En m&#x27;inspirant des langages de programmtion IO et javascript (avec un peu de python), j&#x27;ai trouvé moyen de faire une bibliothèque Php permettant de
-faire de la Poo sans avoir à écrire de classe. Une seule classe est nécessaire et est déjà fournie. Le fonctionnement est le suivant :</p>
+<p>En m&#x27;inspirant des langages de programmtion IO et Javascript (avec un peu de Python), j&#x27;ai trouvé moyen de faire une bibliothèque Php permettant de
+faire de la POO sans avoir à écrire de classe. Une seule classe est nécessaire et est déjà fournie. Le fonctionnement est le suivant :</p>
 <span><div class="gatsby-highlight" data-language="php"><pre style="counter-reset: linenumber NaN" class="language-php line-numbers"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 
 <span class="token comment">// On crée une instance en clonant l'objet statique object de la bibliothèque</span>
@@ -84,16 +84,16 @@ faire de la Poo sans avoir à écrire de classe. Une seule classe est nécessair
 <h2>Conclusion</h2>
 <p>En conclusion je dirais que j&#x27;ai beaucoup exploré le concept d&#x27;orienté objet durant cette aventure. C&#x27;est un paradigme léger
 qui permet de nombreuses interprétations, ce qui peut lui être reproché, mais j&#x27;y vois aussi une force. Au final je n&#x27;utilise pas
-Poop dans mon code Php et je suis assez dubitatif quant à ses perofrmances, mais je suis content de ce que j&#x27;ai pu apprendre en chemin.</p>
-<h3>Epilogue et lemonade</h3>
+Poop dans mon code Php et je suis assez dubitatif quant à ses performances, mais je suis content de ce que j&#x27;ai pu apprendre en chemin.</p>
+<h3>Epilogue et Lemonade</h3>
 <p>En plus de cela, j&#x27;ai fini par ajouter cette forme d&#x27;orienté objet dans un langage de programmation que je développe, baptisé
-lemonade. Son nom viens de la grande lignée des langages générant du javascript (coffescript, caffeine, earl grey...). Bien qu&#x27;il me reste
+Lemonade. Son nom vient de la grande lignée des langages générant du Javascript (Coffescript, Caffeine, Earl grey...). Bien qu&#x27;il me reste
 encore beaucoup de travail, lemonade a pour but d&#x27;être un langage de programmation statiquement typé, orienté objet et fonctionnel, mais
-très peu impératif, qui transpilera en js. Ce qui j&#x27;espère lui permettra de sortir du lot :)</p>
+très peu impératif. Ce qui j&#x27;espère lui permettra de sortir du lot :)</p>
 <p>Merci d&#x27;avoir lu et à une prochaine !</p></div></main></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/php-poo/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-c7276f425dc680900367.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-06f1f15d312b8d6ffcad.js\"],\"component---src-pages-blog-index-tsx\":[\"/component---src-pages-blog-index-tsx-bf1a6b6aa738d03662ee.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-php-poo-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-php-poo-index-mdx-cbe28d02f7bb7566b6b1.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-remaking-java-switch-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-remaking-java-switch-index-mdx-3eaebabbd1efc9a822d1.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-033baa2a9f00252c556f.js\"],\"component---src-pages-projects-index-tsx\":[\"/component---src-pages-projects-index-tsx-311e3b1fa616e650d803.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-c7276f425dc680900367.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-06f1f15d312b8d6ffcad.js\"],\"component---src-pages-blog-index-tsx\":[\"/component---src-pages-blog-index-tsx-bf1a6b6aa738d03662ee.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-php-poo-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-php-poo-index-mdx-ce4cf29b5ede6f0afb68.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-remaking-java-switch-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-tsx-content-file-path-blog-remaking-java-switch-index-mdx-9b7ddfd0f3b13ca4db0c.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-4875f3453aaf726b1635.js\"],\"component---src-pages-projects-index-tsx\":[\"/component---src-pages-projects-index-tsx-681ddf358fd0c21a1eb5.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="d986c5726e0486c46351";</script><script src="/webpack-runtime-d6792ad5df67a55af40c.js" async></script><script src="/framework-e817803d957448322269.js" async></script><script src="/app-c7276f425dc680900367.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="95289c794b4624b4e447";</script><script src="/webpack-runtime-bbbe468c8566c31ec967.js" async></script><script src="/framework-e817803d957448322269.js" async></script><script src="/app-c7276f425dc680900367.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

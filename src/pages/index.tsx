@@ -24,7 +24,7 @@ const AboutPage = () => {
                     </p>
                     <p className='my-4'>
                         Si je devais citer un élément qui me distingue, c'est ma capacité d'adaptation à différentes technologies. <br /> J'ai profité de mon apprentissage en
-                        autodidacte pour explorer de nombreux langages de programmation et technologies et cette variété à profondément et durablement nourri ma
+                        autodidacte pour explorer de nombreux langages de programmation et technologies et cette variété a profondément et durablement nourri ma
                         façon de faire. J'ai ainsi utilisé une vingtaine de langages différents, des plus mainstreams (php, java, python...) à des moins répandus
                         (elm, haxe, reasonml...).
                         <Link to="/projects">

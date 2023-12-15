@@ -1,5 +1,5 @@
 ---
-title: "Je refais le switch expression de java 12"
+title: "Je refais le switch expression de Java 12"
 date: "2022-02-22"
 slug: "remaking-java-switch"
 hero_image: "./code.png"
@@ -9,12 +9,12 @@ hero_image_credit_link: ""
 published: true
 ---
 
-Il y a quelques années je suis tombé sur un article proposant d'implémenter en java 8
-les switch expression sortis en java 12 à l'aide d'expressions lambda. J'avais bien aimé sa lecture
+Il y a quelques années je suis tombé sur un article proposant d'implémenter en Java 8
+les switch expression sortis en Java 12 à l'aide d'expressions lambda. J'avais bien aimé sa lecture
 et la mise en avant de certains concepts, néanmoins j'étais déçu par plusieurs points du code final, en particulier :
 
 - Les cases n'étaient pas vraiment exécutés dans l'odre de leur décralation.
-- Il n'était pas vraiment possible d'étendre les cases présents
+- Il n'était pas vraiment possible d'étendre les cas présents
 
 Pour ces deux raisons, j'ai décidé de tenter moi aussi la réécriture du switch à ma manière, et de voir ce que je peux apprendre en chemin.
 
@@ -29,7 +29,7 @@ En décortiquant la structure du switch, je note trois parties :
 Pour cete raison, il me semble important de commencer mon code par le type d'un cas, représenté par un test de
 correspondace et la valeur à renvoyer si le test passe.
 
-Pour ce faire, je décide de crée une interface :
+Pour ce faire, je décide de créer une interface :
 
 ```java
 interface Rule<V, R> {
@@ -59,7 +59,7 @@ class Switcher<V, R> {
 ```
 
 Où j'ai donc ma collection des règles, la valeur à tester et la valeur de retour par défaut
-(Si non founie, je renvois null par défaut). Je retrouve aussi les génériques utilisés dans mon interface.
+(Si non founie, je renvoie null par défaut). Je retrouve aussi les génériques utilisés dans mon interface.
 
 Je peux ensuite ajouter trois méthodes pour m'en servir :
 
@@ -87,9 +87,9 @@ public R run() {
 }
 ```
 
-Rien d'extraordinaire ici, une méthode pour ajouter des règles et un pour définir le default,
+Rien d'extraordinaire ici, une méthode pour ajouter des règles et une pour définir le default,
 puis une méthode pour exécuter le tout : je parcours les règles et je renvois le retour de la première valide.
-Je renvois `this.def` si je n'en trouve pas.
+Je renvoie `this.def` si je n'en trouve pas.
 
 Avec ce code, je suis déjà en mesure de produire un exemple de switch :
 
@@ -153,7 +153,7 @@ abstract class EqualityRule<V, R> implements Rule<V, R> {
 ```
 
 En faisant ainsi, je crée une règle donc le test est spécialisé et je n'ai plus qu'à spécifier le retour,
-ce qui alège partiellement mon code (ouf !) :
+ce qui allège partiellement mon code (ouf !) :
 
 ```java
 // avant
@@ -175,12 +175,12 @@ ce qui alège partiellement mon code (ouf !) :
 })
 ```
 
-En faisant ainsi je pourrait créer autant de règles de la nature souhaitée en spécialisant à volonté.
+En faisant ainsi je peux créer autant de règles de la nature souhaitée en spécialisant à volonté.
 Par exemple, je peux faire une règle qui n'exécute pas de code avant de retourner. Petit hic cependant,
-java n'autorisant pas l'héritage multiple, il ne m'est pas possible d'hériter de plusieurs règles pour les composer entre elles (outch !).
+Java n'autorisant pas l'héritage multiple, il ne m'est pas possible d'hériter de plusieurs règles pour les composer entre elles (outch !).
 
 Autre possibilité, le `factory` : plutôt que de créer une classe pour chaque cas, je vais créer une fonction
-qui retournera ma clase anonyme. Par exemple, si je reprend le code au dessus :
+qui retournera ma classe anonyme. Par exemple, si je reprends le code au dessus :
 
 ```java
 // definitions
@@ -213,14 +213,14 @@ Plutôt court, n'est-ce pas ?
 
 ## Uber-généralisation
 
-Pour concluse cet article, je vais aborder un dernier point sur ce switch qui concerne un problème de
+Pour conclure cet article, je vais aborder un dernier point sur ce switch qui concerne un problème de
 spécialisation des règles : le fait de définir deux comportements en même temps.
 Parce que le switch est très souple dans son traitement il est assez compliqué de vraiment prévoir tous les cas possibles
-et souhaitables. Le dernier exemple de code ajoute d'ailleurs la définition d'une interface pour décrire les expression
+et souhaitables. Le dernier exemple de code ajoute d'ailleurs la définition d'une interface pour décrire les expressions
 lambdas à passer en paramètre, qui me permet de définir le comportement de retour de façon plus concise.
 C'est pourquoi je vais apporter une dernière solutuion en passant deux lambdas en paramètres.
 
-D'abord, je peux étendre ma interface avec une classe concrète :
+D'abord, je peux étendre mon interface avec une classe concrète :
 
 ```java
 class GeneralRule<V, R> implements Rule<V, R> {
@@ -256,7 +256,7 @@ class Switcher<V, R> {
 Faisant ainsi, je peux alors faire des constructeurs sur chaque comportement individuellement pour ensuite
 le fournir à `RuleFactory.generalRule`, ça me permet alors de gagner une souplesse que je n'avais pas forcément avant.
 
-Cet articles est bien trop grand par rapport à ce que je voulais faire alors je vais conclure avec un dernier exemple
+Cet article est bien trop grand par rapport à ce que je voulais faire alors je vais conclure avec un dernier exemple
 de code avant de vouloir tout effacer pour repartir de 0. Le code complet (mal rangé) est disponible
 [sur le repo du blog](https://github.com/HellperKK/HellperKK.github.io/blob/dev/blog/remaking-java-switch/Main.java).
 

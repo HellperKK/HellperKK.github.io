@@ -11,7 +11,7 @@ export default function Stoicos() {
                 />
         </div>
         <p>
-            Le Stoicos est un langage de programmation dont le développement a commencé fin 2015 et qui s'est peut à peu approché
+            Le Stoicos est un langage de programmation que j'ai commencé à développer fin 2015 et qui s'est peu à peu approché
             de la famille des lisps. Il s'agit d'un langage jouet dont le but est la promotion de la programmation fonctionnelle.
         </p>
     </div>)

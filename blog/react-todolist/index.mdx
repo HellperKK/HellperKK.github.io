@@ -1,0 +1,139 @@
+---
+title: "J'ai réalisé une todo list en react"
+date: "2024-01-15"
+slug: "react-todolist"
+hero_image: "./todo.png"
+hero_image_alt: "Une todolist"
+hero_image_credit_text: ""
+hero_image_credit_link: ""
+published: true
+---
+
+## Introduction
+
+Pour cet article, j'ai décidé de parler d'un projet assez commun à faire quand on veut apprendre
+une nouvelle technologie, à savoir la réalisation d'une todo list. Cet exercice est assez populaire
+de par sa simplicité, qui permet néamoins de visiter quelques concepts clés comme la gestion
+d'éléments multiples.
+
+Pour autant durant mes presque 12 ans de pratique je ne l'avais jamais réalisé. Aussi ai-je
+récemment décidé d'y palier, en utilisant la bibliothèque react. Je vais partager les différents choix
+que j'ai pu faire, en espérant que cela puisse vous inspirer !
+
+
+## Usage de useImmer
+
+`Immerjs` est une bibliothèque permettant de manipuler des structures de façon immutable avec du code à mutation. C'est à
+dire que l'on va muter un objet fourni par immer qui va enregistrer les modifications qu'on lui apporte pour générer un
+nouvel objet contenant ces modification. Cela évite d'avoir à cloner sa state pour pouvoir la muter après, ce qui alège
+grandement le code ! Pour useImmer, il s'agit d'un hook semblable à `useState` surlequel immer a été
+branché. Il renvoie la même paire `[state, setState]` où `setState` prend la fonction de mise à jour que l'on fournirait
+à immer. Pour vous donner une idée plus précise, vous un exemple de code dans ma todo list:
+
+```javascript
+const [todos, setTodos] = useImmer<Array<Todo>>([]);
+// Un peu plus lin dans le code...
+setTodos(draft => {
+  const todoChanging = draft.find(todo => todo.id === id);
+
+  if (todoChanging) {
+    todoChanging.completed = !todoChanging.completed;
+  }
+});
+```
+
+
+## Fonction de filtrage des todos
+
+En plus d'afficher mes todo, j'ai décidé de les séparer selon qu'ils soient complets ou non pour mettre les todos complétés
+en dessous des autres. J'aurais pu pour cela utiliser filter deux fois, une pour ne garder que les incomplet puis une pour
+garder les complets et afficher les deux l'un après l'autre. Mais cela voulais dire parcourir deux fois la liste de todos,
+ce qui n'est pas très optimal quand la liste grandit. À la place j'ai préféré faire une fonction nouivelle de filtrage qui
+ne rejette pas de valeur mais va plutôt séparer mobn array en deux arrays, un pour ce que je garde et un pour ce que je rejette.
+
+Voici mon code :
+
+```typescript
+interface Separation<T> {
+  kept: Array<T>;
+  rejected: Array<T>;
+}
+
+export function separate<T>(values:Array<T>, callback: (value: T) => boolean): Separation<T> {
+  const result: Separation<T> = {kept: [], rejected: []}
+
+  for (const value of values) {
+    if (callback(value)) {
+      result.kept.push(value);
+    } else {
+      result.rejected.push(value);
+    }
+  }
+
+  return result;
+}
+```
+
+Rien de bien compliqué ici, je crée un objet avec deux arrays vides en propriétés et j'inère chaque valeur dans l'un ou
+l'autre, avant de retourner le résultat.
+
+
+## Fonctions d'ordre suppérieur
+
+Pour les différents événements d'un todo, j'ai fait le choix d'externaliser les fonction en la plaçant en dehors du jsx.
+Comme j'affiche plusieurs todo, j'utilise la méthode map sur l'array de todos pour générer la liste dans mon jsx. Petit
+problème : j'ai besoin de savoir quel todo je veux modifier ou supprimer dans la fonction de manipulation, et je ne peux
+pas la passer en paramètre.
+
+```jsx
+const editTodo = (e) => {
+  setTodos(draft => {
+    const todoChanging = draft.find(todo => todo.id === id); // comment récupérer l'id ?
+
+    if (todoChanging) {
+      todoChanging.name = e.target.value;
+    }
+  });
+}
+```
+
+Pour y palier j'utilise une fonction de premier ordre, c'est à dire une fonction qui va prendre l'id en paramètre et me
+construit une fonction d'événement qui peut ensuite l'utiliser.
+
+```jsx
+const editTodo = (id: number): React.ChangeEventHandler<HTMLInputElement> => (e) => {
+  setTodos(draft => {
+    const todoChanging = draft.find(todo => todo.id === id);
+
+    if (todoChanging) {
+      todoChanging.name = e.target.value;
+    }
+  });
+}
+```
+
+On peut le voir avec l'ajout de la première ligne `(id: number): React.ChangeEventHandler<HTMLInputElement> =>`, editTodo
+ne correspond plus à l'événement en lui-même mais une fonction retournant un `React.ChangeEventHandler<HTMLInputElement>`.
+
+Ma fonction s'utilise alors comme ceci :
+
+```jsx
+{filteredTodos.rejected.map((todo) => (
+  <div key={todo.id} className="todo">
+    {todo.id === edit ? <input type="text" onChange={editTodo(todo.id)} value={todo.name} /> : todo.name}
+    <button onClick={editButton(todo.id)} className="button">{todo.id === edit ? "Finish" : "Edit"}</button>
+    {todo.id !== edit && <button onClick={swapTodo(todo.id)} className="button">{todo.completed ? "Undo" : "Complete"}</button>}
+  </div>)
+)}
+```
+
+On peut voir ligne 3 l'usage de `editTodo` : la fonction est appelée avec en paramètre le todo courant de la fonction passée
+à map, ce qui renvoi l'événement attaché au onChange`.
+
+
+## Conclusion
+
+Voilà donc pour cet article. Si l'exercice en lui-même est assez simple et passe partout je l'ai tout de même trouvé assez
+intéressant et cela m'a permi de réfléchir à des points auquels je n'avait pas forcément pensé de prime abord. Je compte
+continuer les exercices de code de ce genre dans un repo à part. Je n'ai pas encore publié, mais promis dès que c'est le cas
+je modifie cet article pour partager son code !

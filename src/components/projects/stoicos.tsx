@@ -6,13 +6,14 @@ export default function Stoicos() {
         <div className='text-center'>
             <h2>Stoicos</h2>
             <StaticImage className='w-6/12 text-center'
-                    alt="Editeur herobook"
-                    src="../../images/Stoicos.png"
-                />
+                alt="Editeur herobook"
+                src="../../images/Stoicos.png"
+            />
         </div>
         <p>
             Le Stoicos est un langage de programmation que j'ai commencé à développer fin 2015 et qui s'est peu à peu approché
             de la famille des lisps. Il s'agit d'un langage jouet dont le but est la promotion de la programmation fonctionnelle.
         </p>
+        <p><a href="https://github.com/HellperKK/stoicos-lang">En savoir plus</a></p>
     </div>)
 }

@@ -5,9 +5,11 @@ import Seo from '../../components/seo'
 import Screen from '../../components/screen'
 import Herobook from '../../components/projects/herobook'
 import Stoicos from '../../components/projects/stoicos'
+import TextMedley from '../../components/projects/textMedley'
+import ClikerProject from '../../components/projects/clikerProject'
 
 const Projects = () => {
-  const projects = [<Herobook />, <Stoicos />]
+  const projects = [<Herobook />, <ClikerProject />, <Stoicos />, <TextMedley />]
 
   return (
     <Layout pageTitle="Mes projets">

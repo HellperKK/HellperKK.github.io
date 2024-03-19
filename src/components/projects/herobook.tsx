@@ -6,9 +6,9 @@ export default function Herobook() {
         <div className='text-center'>
             <h2>Herobook</h2>
             <StaticImage className='w-6/12 text-center'
-                    alt="Editeur herobook"
-                    src="../../images/Herobook.jpg"
-                />
+                alt="Editeur herobook"
+                src="../../images/Herobook.jpg"
+            />
         </div>
         <p>
             Herobook est un moteur de jeu textuel permettant de réaliser des histoires à embranchement

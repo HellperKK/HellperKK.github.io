@@ -4,7 +4,7 @@ import React from "react"
 export default function ClikerProject() {
     return (<div>
         <div className='text-center'>
-            <h2>Text-meldey</h2>
+            <h2>Clicker project</h2>
             <StaticImage className='w-6/12 text-center'
                 alt="Le projet"
                 src="../../images/cliker-project.png"

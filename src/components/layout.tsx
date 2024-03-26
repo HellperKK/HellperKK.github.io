@@ -26,7 +26,6 @@ const Layout = ({ pageTitle, children }: Props) => {
                         <span>Accueil</span>
                     </Link>
                 </div>
-                <span>|</span>
                 {/*
                 <div className='mx-2'>
                     <Link to="/about">
@@ -40,7 +39,6 @@ const Layout = ({ pageTitle, children }: Props) => {
                         <span>Blog</span>
                     </Link>
                 </div>
-                <span>|</span>
                 <div className='mx-2'>
                     <Link to="/projects">
                         <span>Projets</span>

@@ -11,13 +11,18 @@ const Seo = ({ title }: Props) => {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
   `)
 
     return (
+      <>
+        <html lang="fr" />
         <title>{title} | {data.site.siteMetadata.title}</title>
+        <meta name="description" content={data.site.siteMetadata.description} />
+      </>
     )
 }
 

@@ -22,7 +22,7 @@
   }
 
   p a {
-    @apply text-orange-300 underline;
+    @apply text-orange-200 underline;
   }
 
   div p {

@@ -1,5 +1,0 @@
----
-title: Contact
----
-
-En construction.

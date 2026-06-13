@@ -1,8 +1,12 @@
 {% extends "base.html" %}
-{% block title %}{{ super() }} {{section.title}}{% endblock %}
+{% block title %}{{ super() }} {{section.description}}{% endblock %}
 {% block content %}
+
+{% if current_path != "/" %}
+<a href="..">Retour</a>
+{% endif %}
 <h1 class="title">
-  {{ section.description }}
+  {{ section.title }}
 </h1>
 <br>
 <h2>{{ section.content | safe }}</h2>

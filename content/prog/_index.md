@@ -1,5 +1,5 @@
 +++
-title = "la programmation"
+title = "La programmation"
 description = "la programmation"
 sort_by = "date"
 template = "base-section.html"

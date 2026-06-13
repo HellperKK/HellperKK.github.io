@@ -1,6 +1,6 @@
 +++
-title = "trucs"
-description = "Racine du blog"
+title = "Racine du blog"
+description = "les trucs"
 template = "base-section.html"
 +++
 Bienvenue à la racine de mon blog !

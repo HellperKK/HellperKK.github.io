@@ -1,13 +1,7 @@
----
-title: "J'ai réalisé une todo list en react"
-date: "2024-02-26"
-slug: "react-todolist"
-hero_image: "./todo.png"
-hero_image_alt: "Une todolist"
-hero_image_credit_text: ""
-hero_image_credit_link: ""
-published: true
----
++++
+title = "J'ai réalisé une todo list en react"
+date = 2024-02-26
++++
 
 ## Introduction
 

@@ -1,13 +1,7 @@
----
-title: "Je refais le switch expression de Java 12"
-date: "2022-02-22"
-slug: "remaking-java-switch"
-hero_image: "./code.png"
-hero_image_alt: "Un bout de code"
-hero_image_credit_text: ""
-hero_image_credit_link: ""
-published: true
----
++++
+title = "Je refais le switch expression de Java 12"
+date = 2022-02-22
++++
 
 Il y a quelques années je suis tombé sur un article proposant d'implémenter en Java 8
 les switch expression sortis en Java 12 à l'aide d'expressions lambda. J'avais bien aimé sa lecture

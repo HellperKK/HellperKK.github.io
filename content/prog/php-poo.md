@@ -1,13 +1,7 @@
----
-title: "PHP, caca et programmation orientée objet (POO)"
-date: "2023-12-14"
-slug: "php-poo"
-hero_image: "./elephant.jpg"
-hero_image_alt: "L'elephant de php"
-hero_image_credit_text: "DeepAi"
-hero_image_credit_link: ""
-published: true
----
++++
+title = "PHP, caca et programmation orientée objet (POO)"
+date = 2023-12-14
++++
 
 Aujourd'hui, j'aimerais aborder cet article sur un ton plus léger. Je voudrais vous raconter comment j'ai découvert la programmation
 orientée objet, comment je l'ai comprise et comment tout cela m'a amené à concevoir un projet assez... original !

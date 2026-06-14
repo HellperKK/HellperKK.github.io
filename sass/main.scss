@@ -1,3 +1,30 @@
-.container {
+article {
     width: 80ch;
+    margin: 0 auto;
+}
+
+section {
+    padding: 1rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 5px;
+    width: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    a {
+        color: inherit;
+    }
+}
+
+.card-article {
+    display: grid;
+    grid-template-rows: 1fr 50px;
 }

@@ -1,39 +1,50 @@
 {% extends "base.html" %}
-{% block title %}{{ super() }} {{section.description}}{% endblock %}
+{% block title %}{{ super() }} {{ section.title }}{% endblock %}
 {% block content %}
 
-{% if current_path != "/" %}
-<a href="..">Retour</a>
-{% endif %}
-<h1 class="title">
-  {{ section.title }}
-</h1>
-<h2>{{ section.content | safe }}</h2>
+<div class="section-header">
+  {% if current_path != "/" %}
+    <a class="return-link" href="..">← Retour</a>
+  {% endif %}
+  <div>
+    <h1 class="title">{{ section.title }}</h1>
+    {% if section.content %}
+      <p class="section-description">{{ section.content | safe }}</p>
+    {% endif %}
+  </div>
+</div>
+
 {% set articles_length = section.pages | length %}
 {% if articles_length > 0 %}
-  <p>Liste des articles de la section :</p>
-  <div class="cards"> 
-  {% for page in section.pages %}
-    <section class="card card-article">
-      <h2>{{ page.title }}</h2>
-      <a href="{{ page.path | safe }}">Lire l'article</a>
-    </section>
-  {% endfor %}
+  <div class="cards" aria-label="Articles de la section">
+    {% for page in section.pages %}
+      <article class="card card-article">
+        <div>
+          <h2>{{ page.title }}</h2>
+          {% if page.description %}
+            <p>{{ page.description }}</p>
+          {% endif %}
+        </div>
+        <a class="card-link" href="{{ page.path | safe }}">Lire l'article</a>
+      </article>
+    {% endfor %}
   </div>
 {% endif %}
 
 {% set categories_length = section.subsections | length %}
 {% if categories_length > 0 %}
-  <p>Liste des catégories de la section :</p>
-  <div class="cards"> 
-  {% for section_path in section.subsections %}
-    {% set section = get_section(path=section_path) %}
-    <section class="card">Catégorie sur <a href="{{ section.path | safe }}">{{ section.title }}</a></section>
-  {% endfor %}
-  </div>
+  <h2 class="section-subtitle">Sous-catégories</h2>
+  <ul aria-label="Sous-catégories">
+    {% for section_path in section.subsections %}
+      {% set subsec = get_section(path=section_path) %}
+      <li >
+        <a href="{{ subsec.path | safe }}">{{ subsec.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 {% endif %}
 
 {% if articles_length == 0 and categories_length == 0 %}
-  <p>Cette section est vide pour l'instant</p>
+  <p class="empty-state">Cette section est vide pour l'instant.</p>
 {% endif %}
 {% endblock content %}

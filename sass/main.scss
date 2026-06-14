@@ -1,30 +1,263 @@
-article {
-    width: 80ch;
-    margin: 0 auto;
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  line-height: 1.75;
+  font-size: 1rem;
 }
 
-section {
-    padding: 1rem;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.08), transparent 20%),
+    #f8fafc;
+  color: #0f172a;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover,
+button:hover {
+  color: #1d4ed8;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.site-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header,
+.site-footer {
+  width: 100%;
+  max-width: 86rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.site-brand {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.brand-link {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.brand-subtitle {
+  margin: 0;
+  color: #475569;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.site-nav a:hover {
+  background: rgba(59, 130, 246, 0.12);
+  transform: translateY(-1px);
+}
+
+.site-main {
+  flex: 1;
+  width: 100%;
+  max-width: 86rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  color: #475569;
+  padding-bottom: 2rem;
+}
+
+.title,
+.section-header h1,
+.post-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  line-height: 1.05;
+}
+
+.section-header,
+.post-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-description,
+.subtitle {
+  margin: 0.75rem 0 0;
+  color: #475569;
+  font-size: 1rem;
+}
+
+.return-link {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.return-link:hover {
+  color: #1d4ed8;
+}
+
+.post-article,
+article {
+  width: min(100%, 90ch);
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+.post-body,
+article p,
+article li,
+article blockquote,
+article pre,
+article table {
+  color: #334155;
+}
+
+.post-body > *:not(:first-child) {
+  margin-top: 1.5rem;
 }
 
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .card {
-    padding: 1rem;
-    border-radius: 5px;
-    width: 400px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    a {
-        color: inherit;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  min-height: 180px;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card-article {
-    display: grid;
-    grid-template-rows: 1fr 50px;
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+}
+
+.card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0;
+  color: #475569;
+}
+
+.card-link {
+  align-self: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.card-link:hover {
+  background: rgba(37, 99, 235, 0.18);
+}
+
+.card-category {
+  gap: 1rem;
+}
+
+.empty-state {
+  margin-top: 1.5rem;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+
+  .site-main {
+    padding: 0 1rem 2rem;
+  }
+
+  .post-article,
+  article {
+    padding: 1.5rem;
+  }
 }

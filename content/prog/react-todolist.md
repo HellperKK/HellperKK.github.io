@@ -1,5 +1,6 @@
 +++
 title = "J'ai réalisé une todo list en react"
+description = "les listes de tâches"
 date = 2024-02-26
 +++
 

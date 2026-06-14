@@ -1,5 +1,6 @@
 +++
 title = "Je refais le switch expression de Java 12"
+description = "les switchs en java"
 date = 2022-02-22
 +++
 

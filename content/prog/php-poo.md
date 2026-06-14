@@ -1,5 +1,6 @@
 +++
 title = "PHP, caca et programmation orientée objet (POO)"
+description = "réinventer la POO"
 date = 2023-12-14
 +++
 

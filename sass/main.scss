@@ -29,6 +29,14 @@ pre {
     padding: 1rem;
 }
 
+code:not(pre code) {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  background: rgba(15, 23, 42, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
 img,
 video,
 iframe {

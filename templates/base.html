@@ -10,7 +10,7 @@
 
 <body>
   <div class="site-shell">
-    <header class="site-header">
+    <header class="site-header" id="header">
       <div class="site-brand">
         <a class="brand-link" href="/">{{ site.title | default(value="HellperKK") }}</a>
         {% if site.description %}
@@ -27,7 +27,8 @@
     </main>
 
     <footer class="site-footer">
-      <p>© HellperKK — un blog simple sur la programmation.</p>
+      <span>© HellperKK</span>
+      <a href="#header">Retour en haut</a>
     </footer>
   </div>
 </body>

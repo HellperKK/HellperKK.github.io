@@ -27,7 +27,7 @@ branché. Il renvoie la même paire `[state, setState]` où `setState` prend la 
 
 ```javascript
 const [todos, setTodos] = useImmer<Array<Todo>>([]);
-// Un peu plus lin dans le code...
+// Un peu plus loin dans le code...
 setTodos(draft => {
   const todoChanging = draft.find(todo => todo.id === id);
 
@@ -43,8 +43,8 @@ setTodos(draft => {
 En plus d'afficher mes todo, j'ai décidé de les séparer selon qu'ils soient complets ou non pour mettre les todos complétés
 en dessous des autres. J'aurais pu pour cela utiliser filter deux fois, une pour ne garder que les incomplet puis une pour
 garder les complets et afficher les deux l'un après l'autre. Mais cela voulais dire parcourir deux fois la liste de todos,
-ce qui n'est pas très optimal quand la liste grandit. À la place j'ai préféré faire une fonction nouivelle de filtrage qui
-ne rejette pas de valeur mais va plutôt séparer mobn array en deux arrays, un pour ce que je garde et un pour ce que je rejette.
+ce qui n'est pas très optimal quand la liste grandit. À la place j'ai préféré faire une fonction nouvelle de filtrage qui
+ne rejette pas de valeur mais va plutôt séparer mon array en deux arrays, un pour ce que je garde et un pour ce que je rejette.
 
 Voici mon code :
 
@@ -69,7 +69,7 @@ export function separate<T>(values:Array<T>, callback: (value: T) => boolean): S
 }
 ```
 
-Rien de bien compliqué ici, je crée un objet avec deux arrays vides en propriétés et j'inère chaque valeur dans l'un ou
+Rien de bien compliqué ici, je crée un objet avec deux arrays vides en propriétés et j'insère chaque valeur dans l'un ou
 l'autre, avant de retourner le résultat.
 
 
